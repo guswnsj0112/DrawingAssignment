@@ -13,5 +13,4 @@ public class GOval extends GShape{
         g2D.setColor(Color.BLACK);
         g2D.drawOval(x0, y0, x1 - x0, y1 - y0);
     }
-
 }
