@@ -19,7 +19,15 @@
       "Bash(\"/c/Program Files/JetBrains/IntelliJ IDEA 2026.1/plugins/maven/lib/maven3/bin/mvn\" test)",
       "Bash(JAVA_HOME=\"/c/Program Files/Java/jdk-25\" \"/c/Program Files/JetBrains/IntelliJ IDEA 2026.1/plugins/maven/lib/maven3/bin/mvn\" test)",
       "Bash(cat .claude/commands/*)",
-      "Bash(git -C /c/Users/chois/Source/intelliJ/202601/graphicsEditor rev-parse --show-toplevel)"
+      "Bash(git -C /c/Users/chois/Source/intelliJ/202601/graphicsEditor rev-parse --show-toplevel)",
+      "Bash(mvn compile:*)",
+      "Bash(export PATH=\"$PATH:/c/ProgramData/chocolatey/bin:/c/Program Files/Java/jdk-25/bin\")",
+      "Bash(mvn.cmd compile:*)",
+      "Bash(where mvn:*)",
+      "Bash(where java:*)",
+      "Bash(cmd.exe /c \"mvn compile 2>&1\")",
+      "Bash(git restore:*)",
+      "Bash(rm src/main/java/org/graphicsEditor/shapes/GPolygon.java)"
     ]
   }
 }
