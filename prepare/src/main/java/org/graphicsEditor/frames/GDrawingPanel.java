@@ -58,45 +58,7 @@ public class GDrawingPanel extends JPanel {
 	}
 
 	private void startRectangularShape(int x, int y) {
-		if (this.eDrawingState == EDrawingState.eIdle) {
-			if (this.toolBar.getShapeType() == GConstants.EShapeType.eSelect) {
-				for (GShape shape : this.shapes) {
-					GShape.EAnchor eAnchor = shape.onShape(x, y);
-					if (eAnchor != null) {
-						if (eAnchor == GShape.EAnchor.eRotate) {
-							eDrawingState = EDrawingState.eRotating;
-						} else if (eAnchor == GShape.EAnchor.eMove) {
-							eDrawingState = EDrawingState.eMoving;
-						} else { // resize
-							eDrawingState = EDrawingState.eResizing;
-						}
-						this.currentShape = shape;
-						break;
-					}
-				}
-			} else { // drawing
-				if (this.toolBar.getShapeType() == GConstants.EShapeType.eOval) {
-					this.currentShape = new GOval(x, y, x, y);
-				} else if (this.toolBar.getShapeType() == GConstants.EShapeType.eRectangle) {
-					this.currentShape = new GRectangle(x, y, x, y);
-				}
-				eDrawingState = EDrawingState.eDrawing;
-			}
 
-			if (this.getWidth() <= 0 || this.getHeight() <= 0 || this.eDrawingState == EDrawingState.eIdle) {
-				return;
-			}
-
-			if (this.bufferImage == null
-					|| this.bufferImage.getWidth() != this.getWidth()
-					|| this.bufferImage.getHeight() != this.getHeight()) {
-				this.bufferImage = new BufferedImage(this.getWidth(), this.getHeight(), BufferedImage.TYPE_INT_ARGB);
-				Graphics2D bufferGraphics = this.bufferImage.createGraphics();
-				bufferGraphics.setColor(this.getBackground());
-				bufferGraphics.fillRect(0, 0, this.getWidth(), this.getHeight());
-				bufferGraphics.dispose();
-			}
-		}
 	}
 	private void keepRectangularShape(int x, int y) {
 		if (this.eDrawingState != EDrawingState.eIdle) {
@@ -156,6 +118,47 @@ public class GDrawingPanel extends JPanel {
 		}
 		@Override
 		public void mousePressed(MouseEvent e) {
+			int x = e.getX();
+			int y = e.getY();
+			if (eDrawingState == EDrawingState.eIdle) {
+				if (toolBar.getShapeType() == GConstants.EShapeType.eSelect) {
+					for (GShape shape : shapes) {
+						GShape.EAnchor eAnchor = shape.onShape(x, y);
+						if (eAnchor != null) {
+							if (eAnchor == GShape.EAnchor.eRotate) {
+								eDrawingState = EDrawingState.eRotating;
+							} else if (eAnchor == GShape.EAnchor.eMove) {
+								eDrawingState = EDrawingState.eMoving;
+							} else { // resize
+								eDrawingState = EDrawingState.eResizing;
+							}
+							currentShape = shape;
+							break;
+						}
+					}
+				} else { // drawing
+					if (toolBar.getShapeType() == GConstants.EShapeType.eOval) {
+						currentShape = new GOval(x, y, x, y);
+					} else if (toolBar.getShapeType() == GConstants.EShapeType.eRectangle) {
+						currentShape = new GRectangle(x, y, x, y);
+					}
+					eDrawingState = EDrawingState.eDrawing;
+				}
+
+				if (getWidth() <= 0 || getHeight() <= 0 || eDrawingState == EDrawingState.eIdle) {
+					return;
+				}
+
+				if (bufferImage == null
+						|| bufferImage.getWidth() != getWidth()
+						|| bufferImage.getHeight() != getHeight()) {
+					bufferImage = new BufferedImage(getWidth(), getHeight(), BufferedImage.TYPE_INT_ARGB);
+					Graphics2D bufferGraphics = bufferImage.createGraphics();
+					bufferGraphics.setColor(getBackground());
+					bufferGraphics.fillRect(0, 0, getWidth(), getHeight());
+					bufferGraphics.dispose();
+				}
+			}
 			startRectangularShape(e.getX(), e.getY());
 		}
 		@Override

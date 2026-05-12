@@ -1,13 +1,13 @@
 package org.graphicsEditor.shapes;
 
 import java.awt.*;
+import java.awt.geom.Ellipse2D;
 
 public class GOval extends GShape{
 
-    public GOval(int x0, int y0, int x1, int y1) {
-        super(x0, y0, x1, y1);
+    public GOval() {
+        this.shape = new Ellipse2D.Double();
     }
-
     public void draw(Graphics2D g) {
         Graphics2D g2D = (Graphics2D) g.create();
         g2D.setColor(Color.BLACK);

@@ -1,8 +1,9 @@
 package org.graphicsEditor.shapes;
 
 import java.awt.*;
+import java.lang.reflect.InvocationTargetException;
 
-abstract public class GShape {
+abstract public class GShape implements Cloneable {
     public enum EAnchor {
         eRotate,
         eMove,
@@ -10,11 +11,16 @@ abstract public class GShape {
     }
     protected int x0, y0, x1, y1;
 
-    public GShape(int x0, int y0, int x1, int y1) {
-        this.x0 = x0;
-        this.y0 = y0;
-        this.x1 = x1;
-        this.y1 = y1;
+    protected Shape shape;
+
+    public GShape() {
+    }
+    public GShape clone() {
+        try {
+            return (GShape) super.clone();
+        } catch (CloneNotSupportedException e) {
+            throw new RuntimeException(e);
+        }
     }
     public EAnchor onShape(int x, int y) {
         return EAnchor.eMove;
