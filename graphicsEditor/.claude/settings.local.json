@@ -19,7 +19,19 @@
       "Bash(\"/c/Program Files/JetBrains/IntelliJ IDEA 2026.1/plugins/maven/lib/maven3/bin/mvn\" test)",
       "Bash(JAVA_HOME=\"/c/Program Files/Java/jdk-25\" \"/c/Program Files/JetBrains/IntelliJ IDEA 2026.1/plugins/maven/lib/maven3/bin/mvn\" test)",
       "Bash(cat .claude/commands/*)",
-      "Bash(git -C /c/Users/chois/Source/intelliJ/202601/graphicsEditor rev-parse --show-toplevel)"
+      "Bash(git -C /c/Users/chois/Source/intelliJ/202601/graphicsEditor rev-parse --show-toplevel)",
+      "Bash(mvn compile:*)",
+      "Bash(./mvnw compile:*)",
+      "Bash(mvn.cmd compile:*)",
+      "Bash(where mvn:*)",
+      "Read(//c/ProgramData/chocolatey/**)",
+      "Bash(javac -version)",
+      "Bash(JAVA_HOME=\"/c/Program Files/Java/jdk-25\")",
+      "Bash(\"$JAVA_HOME/bin/javac\" -version)",
+      "Bash(SRC_ROOT=\"C:/Users/chois/Source/intelliJ/202601/graphicsEditor/src/main/java\")",
+      "Bash(OUT=\"C:/Users/chois/Source/intelliJ/202601/graphicsEditor/target/classes\")",
+      "Bash(mkdir -p \"$OUT\")",
+      "Bash(\"$JAVA_HOME/bin/javac\" -d \"$OUT\" \"$SRC_ROOT/org/graphicsEditor/global/GConstants.java\" \"$SRC_ROOT/org/graphicsEditor/shapes/GShape.java\" \"$SRC_ROOT/org/graphicsEditor/shapes/GRectangle.java\" \"$SRC_ROOT/org/graphicsEditor/shapes/GOval.java\" \"$SRC_ROOT/org/graphicsEditor/shapes/GPolygon.java\" \"$SRC_ROOT/org/graphicsEditor/frames/GShapeToolBar.java\" \"$SRC_ROOT/org/graphicsEditor/frames/GDrawingPanel.java\" \"$SRC_ROOT/org/graphicsEditor/frames/GMenuBar.java\" \"$SRC_ROOT/org/graphicsEditor/menus/GFileMenu.java\" \"$SRC_ROOT/org/graphicsEditor/frames/GMainFrame.java\" \"$SRC_ROOT/org/graphicsEditor/GMain.java\")"
     ]
   }
 }
