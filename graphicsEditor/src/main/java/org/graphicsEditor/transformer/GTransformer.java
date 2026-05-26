@@ -15,5 +15,3 @@ abstract public class GTransformer {
     abstract public void finish(int x, int y);
     public void cont(int x, int y) {}
 }
-
-
