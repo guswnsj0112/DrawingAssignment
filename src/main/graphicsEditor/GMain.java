@@ -1,6 +1,6 @@
-package org.graphicsEditor;
+package main.graphicsEditor;
 
-import org.graphicsEditor.frames.GMainFrame;
+import main.graphicsEditor.frames.GMainFrame;
 
 public class GMain {
 

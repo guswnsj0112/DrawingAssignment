@@ -1,4 +1,4 @@
-package org.graphicsEditor.menus;
+package main.graphicsEditor.menus;
 
 import javax.swing.*;
 

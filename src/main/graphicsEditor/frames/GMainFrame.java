@@ -1,4 +1,4 @@
-package org.graphicsEditor.frames;
+package main.graphicsEditor.frames;
 
 import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;

@@ -1,8 +1,8 @@
-package org.graphicsEditor.global;
+package main.graphicsEditor.global;
 
-import org.graphicsEditor.shapes.GOval;
-import org.graphicsEditor.shapes.GRectangle;
-import org.graphicsEditor.shapes.GShape;
+import main.graphicsEditor.shapes.GOval;
+import main.graphicsEditor.shapes.GRectangle;
+import main.graphicsEditor.shapes.GShape;
 
 public class GConstants {
     public enum EDrawingType {

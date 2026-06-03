@@ -1,9 +1,8 @@
-package org.graphicsEditor.shapes;
+package main.graphicsEditor.shapes;
 
 import java.awt.*;
 import java.awt.geom.Ellipse2D;
 import java.awt.geom.RectangularShape;
-import java.lang.reflect.InvocationTargetException;
 
 abstract public class GShape implements Cloneable {
     public enum EAnchor {

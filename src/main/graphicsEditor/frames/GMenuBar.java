@@ -1,6 +1,6 @@
-package org.graphicsEditor.frames;
+package main.graphicsEditor.frames;
 
-import org.graphicsEditor.menus.GFileMenu;
+import main.graphicsEditor.menus.GFileMenu;
 
 import javax.swing.*;
 

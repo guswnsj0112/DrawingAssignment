@@ -1,13 +1,10 @@
-package org.graphicsEditor.frames;
+package main.graphicsEditor.frames;
 
-import org.graphicsEditor.global.GConstants;
-import org.graphicsEditor.shapes.GRectangle;
-import org.graphicsEditor.shapes.GShape;
-import org.graphicsEditor.shapes.GOval;
-import org.graphicsEditor.shapes.GShape;
-import org.graphicsEditor.transformer.GDrawer;
-import org.graphicsEditor.transformer.GTransformer;
-import org.graphicsEditor.transformer.GTranslator;
+import main.graphicsEditor.global.GConstants;
+import main.graphicsEditor.shapes.GShape;
+import main.graphicsEditor.transformer.GDrawer;
+import main.graphicsEditor.transformer.GTransformer;
+import main.graphicsEditor.transformer.GTranslator;
 
 import javax.swing.*;
 import java.awt.*;

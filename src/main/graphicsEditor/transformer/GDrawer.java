@@ -1,8 +1,6 @@
-package org.graphicsEditor.transformer;
+package main.graphicsEditor.transformer;
 
-import org.graphicsEditor.shapes.GShape;
-
-import java.awt.*;
+import main.graphicsEditor.shapes.GShape;
 
 public class GDrawer extends GTransformer{
 

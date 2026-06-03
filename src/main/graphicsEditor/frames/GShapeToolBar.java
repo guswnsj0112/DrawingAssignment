@@ -1,6 +1,6 @@
-package org.graphicsEditor.frames;
+package main.graphicsEditor.frames;
 
-import org.graphicsEditor.global.GConstants;
+import main.graphicsEditor.global.GConstants;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;

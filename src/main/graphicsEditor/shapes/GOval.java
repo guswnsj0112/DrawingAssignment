@@ -1,26 +1,25 @@
-package org.graphicsEditor.shapes;
+package main.graphicsEditor.shapes;
 
-import java.awt.*;
 import java.awt.geom.Ellipse2D;
 
-public class GRectangle extends GShape{
+public class GOval extends GShape{
 
-    public GRectangle() {
-        this.shape = new Rectangle();
+    public GOval() {
+        this.shape = new Ellipse2D.Double();
     }
 
     public void setLocation0(int x, int y) {
-        Rectangle r = (Rectangle) shape;
+        Ellipse2D r = (Ellipse2D) shape;
         r.setFrame(x, y, 0, 0);
     }
     public void setLocation1(int x, int y) {
-        Rectangle r = (Rectangle) shape;
+        Ellipse2D r = (Ellipse2D) shape;
         double w = x-r.getX();
         double h = y-r.getY();
         r.setFrame(r.getX(), r.getY(), w, h);
     }
     public void translate(int dx, int dy) {
-        Rectangle r = (Rectangle) shape;
+        Ellipse2D r = (Ellipse2D) shape;
         r.setFrame(r.getX()+dx, r.getY()+dy, r.getWidth(), r.getHeight());
     }
 }

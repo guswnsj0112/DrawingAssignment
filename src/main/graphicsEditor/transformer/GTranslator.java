@@ -1,6 +1,6 @@
-package org.graphicsEditor.transformer;
+package main.graphicsEditor.transformer;
 
-import org.graphicsEditor.shapes.GShape;
+import main.graphicsEditor.shapes.GShape;
 
 public class GTranslator extends GTransformer{
     private int x0;
