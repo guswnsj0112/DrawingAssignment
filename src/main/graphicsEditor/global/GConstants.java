@@ -1,6 +1,8 @@
 package main.graphicsEditor.global;
 
+import main.graphicsEditor.shapes.GLine;
 import main.graphicsEditor.shapes.GOval;
+import main.graphicsEditor.shapes.GPolygon;
 import main.graphicsEditor.shapes.GRectangle;
 import main.graphicsEditor.shapes.GShape;
 
@@ -14,8 +16,8 @@ public class GConstants {
         eSelect("선택", new GRectangle(), EDrawingType.e2Point),
         eRectangle("네모", new GRectangle(), EDrawingType.e2Point),
         eOval("동그라미", new GOval(), EDrawingType.e2Point),
-        eLine("라인", new GRectangle(), EDrawingType.e2Point),
-        ePolygon("폴리곤", new GRectangle(),EDrawingType.eNPoint);
+        eLine("라인", new GLine(), EDrawingType.e2Point),
+        ePolygon("폴리곤", new GPolygon(),EDrawingType.eNPoint);
 
         private final String name;
         private final GShape shape;
