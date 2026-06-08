@@ -136,6 +136,8 @@ public class GDrawingPanel extends JPanel {
         }
         Objects.requireNonNull(this.transformer).getShape().setSelected(true);
 
+        this.toolBar.setShapeType(GConstants.EShapeType.eSelect);
+
         Graphics2D bufferGraphics = this.bufferImage.createGraphics();
         bufferGraphics.setColor(this.getBackground());
         bufferGraphics.fillRect(0, 0, this.getWidth(), this.getHeight());

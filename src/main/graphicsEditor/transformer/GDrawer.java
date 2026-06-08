@@ -23,6 +23,6 @@ public class GDrawer extends GTransformer{
     }
 
     public void cont(int x, int y) {
-        shape.finish(x, y);
+        shape.addPoint(x, y);
     }
 }

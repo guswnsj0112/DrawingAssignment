@@ -3,6 +3,7 @@ package main.graphicsEditor.shapes;
 import java.awt.*;
 import java.awt.geom.Ellipse2D;
 import java.awt.geom.RectangularShape;
+import javax.swing.ImageIcon;
 
 abstract public class GShape implements Cloneable {
     public enum EAnchor {
@@ -17,6 +18,7 @@ abstract public class GShape implements Cloneable {
         eRotate,
         eMove,
     }
+
     private boolean isSelected;
 
     protected Shape shape;
@@ -24,10 +26,13 @@ abstract public class GShape implements Cloneable {
 
     private double rotationAngle = 0;
 
+
+
     public GShape() {
         this.isSelected = false;
         this.anchors = new Anchors();
     }
+
     public GShape clone() {
         try {
             GShape cloned = (GShape) super.clone();
@@ -50,16 +55,41 @@ abstract public class GShape implements Cloneable {
         }
     }
 
+    private Point inverseRotatePoint(int x, int y) {
+        Rectangle bounds = this.shape.getBounds();
+
+        double centerX = bounds.getCenterX();
+        double centerY = bounds.getCenterY();
+
+        double dx = x - centerX;
+        double dy = y - centerY;
+
+        double cos = Math.cos(-this.rotationAngle);
+        double sin = Math.sin(-this.rotationAngle);
+
+        double rotatedX = centerX + dx * cos - dy * sin;
+        double rotatedY = centerY + dx * sin + dy * cos;
+
+        return new Point((int) rotatedX, (int) rotatedY);
+    }
+
+
+
     public EAnchor onShape(int x, int y) {
         EAnchor eAnchor = null;
+
         if (isSelected) {
             eAnchor = this.anchors.onShape(x, y);
         }
+
         if (eAnchor == null) {
-            if (this.shape.contains(x, y)) {
+            Point p = inverseRotatePoint(x, y);
+
+            if (this.shape.contains(p.x, p.y)) {
                 eAnchor = EAnchor.eMove;
             }
         }
+
         return eAnchor;
     }
 
@@ -78,34 +108,50 @@ abstract public class GShape implements Cloneable {
             this.anchors.draw(g);
         }
     }
-    public void setLocation0(int x, int y) {}
-    public void setLocation1(int x, int y) {}
-    public void translate(int dx, int dy) {}
+
+    public void setLocation0(int x, int y) {
+    }
+
+    public void setLocation1(int x, int y) {
+    }
+
+    public void translate(int dx, int dy) {
+    }
 
     //polygon 전용
-    public void addPoint(int x, int y) {}
-    public void finish(int x, int y) {}
+    public void addPoint(int x, int y) {
+    }
+
+    public void finish(int x, int y) {
+    }
 
     private static class Anchors {
+        private Image rotateImage;
+
         public int w = 15;
         public int h = 15;
 
         private final Ellipse2D[] anchors;
 
         public Anchors() {
-            anchors = new Ellipse2D[EAnchor.values().length-1];
+            anchors = new Ellipse2D[EAnchor.values().length - 1];
+
             for (int i = 0; i < anchors.length; i++) {
                 this.anchors[i] = new Ellipse2D.Float();
             }
+
+            this.rotateImage = new ImageIcon("images/rotate.png").getImage();
         }
+
         public EAnchor onShape(int x, int y) {
-             for (int i = 0; i < anchors.length; i++) {
+            for (int i = 0; i < anchors.length; i++) {
                 if (this.anchors[i].contains(x, y)) {
                     return EAnchor.values()[i];
                 }
             }
             return null;
         }
+
         public void setPosition(Rectangle br) {
             int x = br.x;
             int y = br.y;
@@ -132,9 +178,15 @@ abstract public class GShape implements Cloneable {
             this.anchors[EAnchor.eSE.ordinal()].setFrame(right, bottom, w, h);
             this.anchors[EAnchor.eRotate.ordinal()].setFrame(centerX, top - 30, w, h);
         }
+
         public void draw(Graphics2D g) {
             for (int i = 0; i < anchors.length; i++) {
-                g.draw(anchors[i]);
+                if (i == EAnchor.eRotate.ordinal()) {
+                    Rectangle bounds = anchors[i].getBounds();
+                    g.drawImage(rotateImage, bounds.x, bounds.y, bounds.width, bounds.height, null);
+                } else {
+                    g.draw(anchors[i]);
+                }
             }
         }
     }

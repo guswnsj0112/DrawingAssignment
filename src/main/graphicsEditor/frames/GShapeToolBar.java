@@ -34,4 +34,8 @@ public class GShapeToolBar extends JToolBar {
 		}
 	}
 
+	public void setShapeType(GConstants.EShapeType eShapeType) {
+		((JRadioButton)(this.getComponentAtIndex(eShapeType.ordinal()))).doClick();
+	}
+
 }
