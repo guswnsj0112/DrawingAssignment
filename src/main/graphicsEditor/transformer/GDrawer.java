@@ -19,10 +19,10 @@ public class GDrawer extends GTransformer{
 
     @Override
     public void finish(int x, int y) {
-
+        shape.finish(x, y);
     }
 
     public void cont(int x, int y) {
-
+        shape.addPoint(x, y);
     }
 }
